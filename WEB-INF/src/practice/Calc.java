@@ -72,8 +72,9 @@ public class Calc {
 		return this;
 	}
 
-	public void mulX(int a){
+	public Calc mulX(int a){
 		x *= a;
+		return this;
 	}
 
 	public void divX(int a){
