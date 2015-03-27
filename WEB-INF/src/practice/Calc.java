@@ -6,10 +6,6 @@ public class Calc {
 	private int y;
 	private int z;
 
-	public static void main(String[] args){
-
-	}
-
 	Calc(){
 		this.x = 0;
 		this.y = 0;
@@ -26,11 +22,10 @@ public class Calc {
 	}
 
 	public int plus(){
-		z = x + y;
-		return z;
+		return x + y;
 	}
 
-	public int  minus(){
+	public int minus(){
 		return x - y;
 	}
 
@@ -47,20 +42,12 @@ public class Calc {
 	}
 
 	public int max(){
-		if(x > y){
-			return x;
-		}else{
-			return y;
-		}
-	}
+		  return (x > y) ? x : y;
+		 }
 
 	public int min(){
-		if(x < y){
-			return x;
-		}else{
-			return y;
-		}
-	}
+		  return (x < y) ? x : y;
+		 }
 
 	public Calc addX(int a){
 		x += a;
@@ -77,16 +64,19 @@ public class Calc {
 		return this;
 	}
 
-	public void divX(int a){
+	public Calc divX(int a){
 		x /= a;
+		return this;
 	}
 
-	public void modX(int a){
+	public Calc modX(int a){
 		x %= a;
+		return this;
 	}
 
-	public void addY(int b){
+	public Calc addY(int b){
 		y += b;
+		return this;
 	}
 
 	public Calc subY(int b){
@@ -94,16 +84,122 @@ public class Calc {
 		return this;
 	}
 
-	public void mulY(int b){
+	public Calc mulY(int b){
 		y *= b;
+		return this;
 	}
 
-	public void divY(int b){
+	public Calc divY(int b){
 		y /= b;
+		return this;
 	}
 
-	public void modY(int b){
+	public Calc modY(int b){
 		y %= b;
+		return this;
+	}
+	/**
+	 *
+	 * @足し算
+	 */
+	static public int plus(int a,int b){
+		return a + b;
+	}
+	/**
+	 *
+	 * @引き算
+	 */
+	static public int minus(int a,int b){
+		return a - b;
+	}
+	/**
+	 *
+	 * @掛け算
+	 */
+	static public int multiply(int a,int b){
+		return a * b;
+	}
+	/**
+	 *
+	 * @割り算
+	 */
+	static public int division(int a,int b){
+		return a / b;
+	}
+	/**
+	 *
+	 * @剰余算
+	 */
+	static public int residue(int a,int b){
+		return a % b;
+	}
+
+	private static boolean isEmpty(int[] nums){
+		return nums == null || nums.length ==0;
+	}
+	/**
+	 *
+	 *
+	 * @可変長引数足し算
+	 */
+	static public int plus(int... nums){
+		if(Calc.isEmpty(nums)){
+			return 0;
+		}
+
+		int sum = nums[0];
+		for(int i = 1;i < nums.length;i++){
+			sum += nums[i];
+		}
+		return sum;
+	}
+	/**
+	 *
+	 *
+	 * @可変長引数引き算
+	 */
+	static public int minus(int... nums){
+		if(Calc.isEmpty(nums)){
+			return 0;
+		}
+
+		int sum = nums[0];
+		for(int i = 1;i < nums.length;i++){
+			sum -= nums[i];
+		}
+		return sum;
+	}
+	/**
+	 *
+	 *
+	 * @可変長引数掛け算
+	 */
+	static public int multiply(int... nums){
+		if(Calc.isEmpty(nums)){
+			return 0;
+		}
+
+		int sum = nums[0];
+		for(int i = 1;i < nums.length;i++){
+			sum *= nums[i];
+		}
+		return sum;
+	}
+	/**
+	 *
+	 *
+	 * @可変長引数割り算
+	 */
+	static public int division(int... nums){
+		if(Calc.isEmpty(nums)){
+			return 0;
+		}
+
+		int sum = nums[0];
+		for(int i = 1;i < nums.length;i++){
+			sum /= nums[i];
+		}
+		return sum;
 	}
 
 }
