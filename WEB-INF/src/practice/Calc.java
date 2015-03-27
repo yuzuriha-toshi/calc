@@ -4,7 +4,6 @@ public class Calc {
 
 	private int x;
 	private int y;
-	private int z;
 
 	Calc(){
 		this.x = 0;
